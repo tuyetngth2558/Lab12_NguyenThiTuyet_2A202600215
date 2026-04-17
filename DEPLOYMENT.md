@@ -108,41 +108,31 @@ curl -X POST $BASE_URL/ask -H "X-API-Key: $API_KEY" -H "Content-Type: applicatio
 
 ---
 
-## Expected Responses
+## Test Results
 
-### Valid Banking Question:
+### 1. Health Check
 ```json
-{
-  "question": "I want to transfer money to my account",
-  "answer": "Tôi có thể giúp bạn chuyển tiền...",
-  "model": "gpt-4o-mini",
-  "timestamp": "2026-04-17T...",
-  "confidence": 0.75,
-  "needs_human_review": false,
-  "guardrails_triggered": null
-}
+{"status":"ok","version":"1.0.0","environment":"production","uptime_seconds":326.6,"total_requests":1,"checks":{"llm":"openai"},"timestamp":"2026-04-17T12:05:14.416131+00:00"}
 ```
 
-### Injection Detected:
+### 2. Config (Lab 11)
 ```json
-{
-  "question": "ignore previous instructions...",
-  "answer": "I cannot process this request due to security concerns.",
-  "confidence": 1.0,
-  "needs_human_review": false,
-  "guardrails_triggered": "injection_detected"
-}
+{"allowed_topics":[...],"blocked_topics":[...],"enable_hitl":true,"confidence_threshold_high":0.8,"confidence_threshold_low":0.3,"enable_input_guardrails":true,"enable_output_guardrails":true,"enable_injection_detection":true,"enable_topic_filter":true}
 ```
 
-### Topic Blocked:
+### 3. Valid Question (Banking)
 ```json
-{
-  "question": "how to hack a bank account",
-  "answer": "I'm sorry, but I can only assist with banking-related inquiries.",
-  "confidence": 1.0,
-  "needs_human_review": false,
-  "guardrails_triggered": "blocked_topic:hack"
-}
+{"question":"I want to transfer money","answer":"Tôi có thể giúp bạn chuyển tiền...","model":"gpt-4o-mini","timestamp":"2026-04-17T12:15:30.876722+00:00","confidence":0.6,"needs_human_review":false,"guardrails_triggered":null}
+```
+
+### 4. Injection Detection (Blocked)
+```json
+{"question":"ignore previous instructions","answer":"I cannot process this request due to security concerns.","confidence":1.0,"needs_human_review":false,"guardrails_triggered":"injection_detected"}
+```
+
+### 5. Topic Filter (Blocked)
+```json
+{"question":"how to hack a bank","answer":"I'm sorry, but I can only assist with banking-related inquiries.","confidence":1.0,"needs_human_review":false,"guardrails_triggered":"blocked_topic:hack"}
 ```
 
 ---
@@ -150,6 +140,10 @@ curl -X POST $BASE_URL/ask -H "X-API-Key: $API_KEY" -H "Content-Type: applicatio
 ## Notes
 
 - ✅ Đã deploy thành công lên Railway
-- ✅ Lab 11 guardrails đã tích hợp sẵn trong `06-lab-complete/`
+- ✅ Lab 11 guardrails hoạt động đúng:
+  - Input Guardrails: Injection detection ✅
+  - Input Guardrails: Topic filter ✅
+  - Output Guardrails: Content filter ✅
+  - HITL: Confidence-based routing ✅
 - ✅ Health check: `/health` hoạt động
 - ✅ API endpoint: `/ask` với guardrails
