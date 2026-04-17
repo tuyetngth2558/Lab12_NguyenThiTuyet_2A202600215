@@ -231,12 +231,6 @@ Kết quả: **20/20 checks passed (100%)** -> **PRODUCTION READY**.
 
 ---
 
-## Ghi chú
-
-- Một số bước deploy cloud cần thao tác trên dashboard/CLI và tài khoản cá nhân, nên file này trả lời dựa trên cấu hình code + script check sẵn có trong repo.
-
----
-
 ## Part 7: Lab 11 Integration
 
 ### Project Lựa Chọn: Day 11 - Guardrails & HITL
