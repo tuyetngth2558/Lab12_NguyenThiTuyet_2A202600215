@@ -10,7 +10,7 @@
 
 ### Railway (Primary)
 
-- **Status:** ✅ Đã deploy thành công
+- **Status:** Đã deploy thành công
 - **URL:** https://lab12nguyenthituyet2a202600215-production.up.railway.app
 - **Deploy Date:** 17/04/2026
 - **Config:** `railway.toml` đã có trong repo
@@ -139,9 +139,9 @@ curl -X POST $BASE_URL/ask -H "X-API-Key: $API_KEY" -H "Content-Type: applicatio
 
 ## Notes
 
-- ✅ Đã deploy thành công lên Railway
-- ✅ Lab 11 guardrails hoạt động đúng:
-  - Input Guardrails: Injection detection ✅
+- Đã deploy thành công lên Railway
+- Lab 11 guardrails hoạt động đúng:
+  - Input Guardrails: Injection detection 
   - Input Guardrails: Topic filter ✅
   - Output Guardrails: Content filter ✅
   - HITL: Confidence-based routing ✅
