@@ -57,22 +57,22 @@
 **Trạng thái hiện tại:**
 - [x] Đã tạo file `DEPLOYMENT.md` với hướng dẫn deploy
 - [x] Có cấu hình deploy: `railway.toml` và `render.yaml`
-- [ ] Chưa deploy thực tế (cần Railway/Render account)
-- [ ] Chưa có public URL
+- [x] Đã deploy thành công lên Railway
+- [x] **URL:** `https://lab12nguyenthituyet2a202600215-production.up.railway.app`
 
 ---
 
 ## 2) Pre-Submission Checklist (Trạng Thái Thực Tế)
 
 - [x] `MISSION_ANSWERS.md` completed - Đầy đủ Part 1-7 (bao gồm Lab 11 integration)
-- [x] `DEPLOYMENT.md` created - Hướng dẫn deploy Railway/Render
+- [x] `DEPLOYMENT.md` created - Đã có URL deploy thực tế
 - [x] All source code in `app/` directory
 - [x] `README.md` has clear setup instructions
 - [x] No `.env` file committed (chỉ có `.env.example`)
 - [x] No hardcoded secrets in code
 - [x] Lab 11 guardrails integrated in `06-lab-complete`
-- [ ] Public URL is accessible (cần deploy lên Railway/Render)
-- [ ] Screenshots included (cần deploy và chụp)
+- [x] Public URL is accessible - Railway deploy thành công
+- [ ] Screenshots included (tùy chọn)
 
 ---
 
