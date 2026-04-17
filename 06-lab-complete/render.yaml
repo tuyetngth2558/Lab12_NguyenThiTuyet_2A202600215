@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: ai-agent-production
+    name: lab11-guardrails-agent
     runtime: docker
     region: singapore
     plan: starter
@@ -9,9 +9,13 @@ services:
     envVars:
       - key: ENVIRONMENT
         value: production
+      - key: APP_NAME
+        value: "Lab 11 Guardrails Agent"
       - key: APP_VERSION
         value: "1.0.0"
       - key: OPENAI_API_KEY
+        sync: false
+      - key: GOOGLE_API_KEY
         sync: false
       - key: AGENT_API_KEY
         generateValue: true
@@ -21,3 +25,19 @@ services:
         value: "5.0"
       - key: RATE_LIMIT_PER_MINUTE
         value: "20"
+      # Lab 11: Guardrails
+      - key: ENABLE_INPUT_GUARDRAILS
+        value: "true"
+      - key: ENABLE_OUTPUT_GUARDRAILS
+        value: "true"
+      - key: ENABLE_INJECTION_DETECTION
+        value: "true"
+      - key: ENABLE_TOPIC_FILTER
+        value: "true"
+      # Lab 11: HITL
+      - key: ENABLE_HITL
+        value: "true"
+      - key: CONFIDENCE_THRESHOLD_HIGH
+        value: "0.8"
+      - key: CONFIDENCE_THRESHOLD_LOW
+        value: "0.3"
